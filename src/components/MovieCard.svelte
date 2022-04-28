@@ -8,7 +8,7 @@
 
 <div class="movie-card">
   <!-- on image click redirect to movie id -->
-	<a href={"/movie/" + movie.id}>
+	<a sveltekit:prefetch sveltekit:noscroll href={"/movie/" + movie.id}>
 		<img alt={movie.title} src={`https://image.tmdb.org/t/p/w500` + movie.poster_path} />
 	</a>
 	<div class="desc">

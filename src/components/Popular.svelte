@@ -5,6 +5,7 @@
    let popularMovies;
   // console.log(popularMovies)
   import MovieCard from "./MovieCard.svelte";
+
 </script>
 
 <h1>Popular Movies</h1>

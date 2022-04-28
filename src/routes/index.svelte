@@ -21,6 +21,8 @@
 <script>
 	import Popular from '../components/Popular.svelte';
 	import Search from '../components/Search.svelte';
+	import { fly } from 'svelte/transition';
+
 	// exporting popular prop from fetch
 	export /**
 * @type {any}
@@ -30,7 +32,7 @@
 </script>
 
 <!-- Body  -->
-<body>
+<body in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
 	<Search />
 	<Popular popularMovies={popular} />
 </body>
