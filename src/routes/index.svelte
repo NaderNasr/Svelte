@@ -20,6 +20,7 @@
 
 <script>
 	import Popular from '../components/Popular.svelte';
+	import Search from '../components/Search.svelte';
 	// exporting popular prop from fetch
 	export /**
 * @type {any}
@@ -30,5 +31,6 @@
 
 <!-- Body  -->
 <body>
+	<Search />
 	<Popular popularMovies={popular} />
 </body>
