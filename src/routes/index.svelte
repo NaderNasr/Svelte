@@ -28,11 +28,6 @@
 	// console.log(popular)
 </script>
 
-<!-- Header -->
-<header>
-	<a href="/about">About</a>
-</header>
-
 <!-- Body  -->
 <body>
 	<Popular popularMovies={popular} />
