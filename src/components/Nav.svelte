@@ -11,7 +11,6 @@
     min-height: 10vh;
     align-items: center;
     justify-content: center;
-    
   }
 
   a {
