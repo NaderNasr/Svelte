@@ -20,7 +20,7 @@
 		}
 	}
 
-	const space = `\u00A0\u00A0\u00A0\u00A0\u00A0`
+	const space = `\u00A0\u00A0\u00A0\u00A0\u00A0`;
 
 	const minToHours = (min) => {
 		const num = min;
@@ -32,11 +32,23 @@
 		return space + `${rhours} hour(s) and ${rminutes} minute(s).`;
 	};
 
-	const separator = (number) => {
-    const str = number.toString().split(".");
-    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return str.join(".");
-}
+	const budgetSeparator = (number) => {
+		if(number <= 0){
+			return 'Not available'
+		}
+		const str = number.toString().split('.');
+		str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		return '$' + str.join('.');
+	};
+
+	const numToStars = (number) => {
+		const divideByTwo = number / 2
+		let output = ''
+		for(let i = 0; i < divideByTwo; i++){
+			output += ' ⭐️ '
+		}
+		return output
+	};
 </script>
 
 <script>
@@ -64,10 +76,10 @@
 			{movieDetail.overview}
 		</p>
 		<p>
-			<span>Release Date</span>{space}{movieDetail.release_date}<br />
-			<span>Budget</span>{space}${separator(movieDetail.budget)}<br />
-			<span>Rating</span>{space}{movieDetail.vote_average}<br />
+			<span>Rating</span>{space}{numToStars(movieDetail.vote_average)}<br />
 			<span>Runtime</span>{minToHours(movieDetail.runtime)}<br />
+			<span>Release Date</span>{space}{movieDetail.release_date}<br />
+			<span>Budget</span>{space}{budgetSeparator(movieDetail.budget)}<br />
 		</p>
 	</div>
 </div>
