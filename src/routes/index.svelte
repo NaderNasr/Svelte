@@ -2,9 +2,7 @@
 	//fetch api request
 	export async function load() {
 		const response = await fetch(
-			`https://api.themoviedb.org/3/movie/popular?api_key=${
-        import.meta.env.VITE_API_KEY
-      }`
+			`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_API_KEY}`
 		);
 		const data = await response.json();
 		console.log(data);
@@ -25,9 +23,9 @@
 
 	// exporting popular prop from fetch
 	export /**
-* @type {any}
-*/
-	 let popular;
+	 * @type {any}
+	 */
+	let popular;
 	// console.log(popular)
 </script>
 
