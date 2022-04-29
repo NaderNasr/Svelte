@@ -19,6 +19,16 @@
 			};
 		}
 	}
+
+	const minToHours = (min) => {
+		const num = min;
+		const hours = num / 60;
+		const rhours = Math.floor(hours);
+		const minutes = (hours - rhours) * 60;
+		const rminutes = Math.round(minutes);
+
+		return `\u00A0\u00A0\u00A0\u00A0\u00A0${rhours} hour(s) and ${rminutes} minute(s).`;
+	};
 </script>
 
 <script>
@@ -31,7 +41,11 @@
 	import { fly } from 'svelte/transition';
 </script>
 
-<div class="movie-details" in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ duration: 500 }}>
+<div
+	class="movie-details"
+	in:fly={{ y: 50, duration: 500, delay: 500 }}
+	out:fly={{ duration: 500 }}
+>
 	<img
 		src={`https://image.tmdb.org/t/p/original` + movieDetail.backdrop_path}
 		alt={movieDetail.title}
@@ -45,7 +59,7 @@
 			<span>Release Date</span>{movieDetail.release_date}<br />
 			<span>Budget</span>{movieDetail.budget}<br />
 			<span>Rating</span>{movieDetail.vote_average}<br />
-			<span>Runtime</span>{movieDetail.runtime}<br />
+			<span>Runtime</span>{minToHours(movieDetail.runtime)}<br />
 		</p>
 	</div>
 </div>
