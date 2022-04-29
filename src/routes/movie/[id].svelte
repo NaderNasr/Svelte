@@ -20,6 +20,8 @@
 		}
 	}
 
+	const space = `\u00A0\u00A0\u00A0\u00A0\u00A0`
+
 	const minToHours = (min) => {
 		const num = min;
 		const hours = num / 60;
@@ -27,8 +29,14 @@
 		const minutes = (hours - rhours) * 60;
 		const rminutes = Math.round(minutes);
 
-		return `\u00A0\u00A0\u00A0\u00A0\u00A0${rhours} hour(s) and ${rminutes} minute(s).`;
+		return space + `${rhours} hour(s) and ${rminutes} minute(s).`;
 	};
+
+	const separator = (number) => {
+    const str = number.toString().split(".");
+    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return str.join(".");
+}
 </script>
 
 <script>
@@ -56,9 +64,9 @@
 			{movieDetail.overview}
 		</p>
 		<p>
-			<span>Release Date</span>{movieDetail.release_date}<br />
-			<span>Budget</span>{movieDetail.budget}<br />
-			<span>Rating</span>{movieDetail.vote_average}<br />
+			<span>Release Date</span>{space}{movieDetail.release_date}<br />
+			<span>Budget</span>{space}${separator(movieDetail.budget)}<br />
+			<span>Rating</span>{space}{movieDetail.vote_average}<br />
 			<span>Runtime</span>{minToHours(movieDetail.runtime)}<br />
 		</p>
 	</div>
