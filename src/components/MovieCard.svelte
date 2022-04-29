@@ -1,5 +1,9 @@
 <script>
 	// @ts-nocheck
+
+	const onlyYearOfDate = (str) => {
+		return str.toString().substring(0, 4)
+	}
 	export /**
 	 * @type {{ id: any; }}
 	 */
@@ -13,7 +17,7 @@
 	</a>
 	<div class="desc">
 		<h2>{movie.title}</h2>
-		<p>{movie.release_date}</p>
+		<p>{onlyYearOfDate(movie.release_date)}</p>
 	</div>
 </div>
 
@@ -32,7 +36,7 @@
 		height: 5vh;
 	}
 	p {
-		font-size: 0.7rem;
+		font-size: 1rem;
 	}
 	.movie-card {
 		display: flex;
