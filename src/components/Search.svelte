@@ -37,8 +37,8 @@
 <style>
 	.search {
 		position: relative;
-		width: 30%;
-		margin: 1rem;
+		width: 100%;
+
 	}
 
 	input {
@@ -48,9 +48,8 @@
 		outline: none;
 		color: rgb(255, 255, 255);
 		padding: 0.5rem 1rem;
-		transition: background 0.75s ease-out;
 		font-weight: bold;
-		background: rgb(63, 63, 63);
+		background: rgb(0, 0, 0);
 		border-radius: 10px;
 		padding: 1rem;
 	}
@@ -64,6 +63,8 @@
 		pointer-events: none;
 		color: #fff;
 		padding: 0rem 1rem;
+		background: rgb(0, 0, 0);
+
 	}
 
 	button {
@@ -84,6 +85,6 @@
 	}
 
 	input.selected {
-		background: rgb(50, 50, 50);
+		background: rgb(0, 0, 0);
 	}
 </style>
